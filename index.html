@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blogging Platform</title>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        body {
+            padding: 20px;
+        }
+        .form-group textarea {
+            height: 150px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1 class="mt-5">Welcome to the Blogging Platform</h1>
+
+        <div class="mt-5">
+            <h2>User Registration</h2>
+            <form id="registrationForm">
+                <div class="form-group">
+                    <label for="regUsername">Username:</label>
+                    <input type="text" class="form-control" id="regUsername" name="username" required>
+                </div>
+                <div class="form-group">
+                    <label for="regPassword">Password:</label>
+                    <input type="password" class="form-control" id="regPassword" name="password" required>
+                </div>
+                <button type="submit" class="btn btn-primary">Register</button>
+            </form>
+        </div>
+
+        <!-- User Login Form -->
+        <div class="mt-5">
+            <h2>User Login</h2>
+            <form id="loginForm">
+                <div class="form-group">
+                    <label for="loginUsername">Username:</label>
+                    <input type="text" class="form-control" id="loginUsername" name="username" required>
+                </div>
+                <div class="form-group">
+                    <label for="loginPassword">Password:</label>
+                    <input type="password" class="form-control" id="loginPassword" name="password" required>
+                </div>
+                <button type="submit" class="btn btn-primary">Login</button>
+            </form>
+        </div>
+
+        
+<!-- Create blog-->
+<div class="mt-5">
+    <h2>Create Blog Post</h2>
+    <form id="blogPostForm">
+        <div class="form-group">
+            <label for="postTitle">Title:</label>
+            <input type="text" class="form-control" id="postTitle" name="title" required>
+        </div>
+        <div class="form-group">
+            <label for="postContent">Content:</label>
+            <textarea class="form-control" id="postContent" name="content" required></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary">Create Blog Post</button>
+    </form>
+</div>
+
+<!-- Blog list-->
+<div class="mt-5">
+    <button class="btn btn-primary" id="fetchBlogsButton">Fetch Blogs</button>
+    <ul id="blogPostsList"></ul>
+</div>
+
+<!-- Update Blog Post Form -->
+<div class="mt-5">
+    <h2>Update Blog Post by ID</h2>
+    <form id="updateBlogForm">
+        <div class="form-group">
+            <label for="updatePostId">Post ID:</label>
+            <input type="text" class="form-control" id="updatePostId" name="postId" required>
+        </div>
+        <div class="form-group">
+            <label for="updatePostTitle">New Title:</label>
+            <input type="text" class="form-control" id="updatePostTitle" name="title" required>
+        </div>
+        <div class="form-group">
+            <label for="updatePostContent">New Content:</label>
+            <textarea class="form-control" id="updatePostContent" name="content" required></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary">Update Blog Post</button>
+    </form>
+</div>
+
+<!-- Delete Blog Post Form -->
+<div class="mt-5">
+    <h2>Delete Blog Post by ID</h2>
+    <form id="deleteBlogForm">
+        <div class="form-group">
+            <label for="deletePostId">Post ID:</label>
+            <input type="text" class="form-control" id="deletePostId" name="postId" required>
+        </div>
+        <button type="submit" class="btn btn-danger">Delete Blog Post</button>
+    </form>
+</div>
+
+<!-- Create Comment Form -->
+<div class="mt-5">
+    <h2>Create Comment</h2>
+    <form id="commentForm">
+        <div class="form-group">
+            <label for="commenterName">Your Name:</label>
+            <input type="text" class="form-control" id="commenterName" name="commenterName" required>
+        </div>
+        <div class="form-group">
+            <label for="commentText">Comment:</label>
+            <textarea class="form-control" id="commentText" name="commentText" required></textarea>
+        </div>
+        <div class="form-group">
+            <label for="commentPostId">Post ID:</label>
+            <input type="text" class="form-control" id="commentPostId" name="postId" required>
+        </div>
+        <button type="submit" class="btn btn-primary">Add Comment</button>
+    </form>
+</div>
+
+<!-- Comments List -->
+<div class="mt-5">
+    <button class="btn btn-primary" id="fetchCommentsButton">Fetch Comments</button>
+    <ul id="commentsList"></ul>
+</div>
+
+<!-- Update Comment Form -->
+<div class="mt-5">
+    <h2>Update Comment by ID</h2>
+    <form id="updateCommentForm">
+        <div class="form-group">
+            <label for="updateCommentId">Comment ID:</label>
+            <input type="text" class="form-control" id="updateCommentId" name="commentId" required>
+        </div>
+        <div class="form-group">
+            <label for="updateCommenterName">New Name:</label>
+            <input type="text" class="form-control" id="updateCommenterName" name="commenterName" required>
+        </div>
+        <div class="form-group">
+            <label for="updateCommentText">New Comment:</label>
+            <textarea class="form-control" id="updateCommentText" name="commentText" required></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary">Update Comment</button>
+    </form>
+</div>
+
+<!-- Delete Comment Form -->
+<div class="mt-5">
+    <h2>Delete Comment by ID</h2>
+    <form id="deleteCommentForm">
+        <div class="form-group">
+            <label for="deleteCommentId">Comment ID:</label>
+            <input type="text" class="form-control" id="deleteCommentId" name="commentId" required>
+        </div>
+        <button type="submit" class="btn btn-danger">Delete Comment</button>
+    </form>
+</div>
+</body>
+</html>
+
+
+        <!-- Bootstrap JS and dependencies -->
+        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.1/dist/umd/popper.min.js"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+        <script src="frontend.js"></script>
+    </div>
+</body>
+
+</html>
